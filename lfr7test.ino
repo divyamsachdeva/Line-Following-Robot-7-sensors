@@ -35,27 +35,42 @@ void loop()
   // put your main code here, to run repeatedly:
   if (!digitalRead(ir3))
   {
-    Serial.println("F");
+    digitalWrite(lm1,HIGH);
+    digitalWrite(lm2,LOW);
+    digitalWrite(rm1,HIGH);
+    digitalWrite(rm2,LOW);
   }
   else
   {
     if (!digitalRead(ir2) || !digitalRead(ir1))
     {
-      Serial.println("L");
+      digitalWrite(lm1,HIGH);
+      digitalWrite(lm2,LOW);
+      digitalWrite(rm1,LOW);
+      digitalWrite(rm2,LOW);
     }
     else if (!digitalRead(ir4) || !digitalRead(ir5))
     {
-      Serial.println("R");
+      digitalWrite(lm1,LOW);
+      digitalWrite(lm2,LOW);
+      digitalWrite(rm1,HIGH);
+      digitalWrite(rm2,LOW);
     }
     else
     {
       if (!digitalRead(ir6))
       {
-        Serial.println("LL");
+        digitalWrite(lm1,LOW);
+        digitalWrite(lm2,HIGH);
+        digitalWrite(rm1,HIGH);
+        digitalWrite(rm2,LOW);
       }
       else if (!digitalRead(ir7))
       {
-        Serial.println("RR");
+        digitalWrite(lm1,HIGH);
+        digitalWrite(lm2,LOW);
+        digitalWrite(rm1,LOW);
+        digitalWrite(rm2,HIGH);
       }
     }
   }
